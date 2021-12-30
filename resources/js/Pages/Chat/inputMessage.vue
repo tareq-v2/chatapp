@@ -1,5 +1,5 @@
 <template>
-    <div class="relative m-1">
+    <div class="relative h-12 m-1">
         <div style="border-top: 1px solid #e6e6e6;" class="grid grid-cols-6">
             <input
                 type="text"
@@ -8,12 +8,12 @@
                 placeholder="Say Something..."
                 class="col-span-5 outline-none p-1"
                 />
-            <input
-                type="button"
+            <button
                 @click="sendMessage()"
-                class="place-self-end bg-grey-500 hover:bg-blue-700 p-1 mt-1 rounded text-white"
-                value="Send"
-                />
+                class="place-self-end bg-grey-500 bg-blue-700 hover:bg-blue-700 p-1 mt-1 rounded text-white"
+                >
+                send
+            </button>
         </div>
     </div>
 </template>

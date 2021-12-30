@@ -22,10 +22,13 @@
                                 <jet-nav-link :href="route('dashboard')" :active="route().current('dashboard')">
                                     Dashboard
                                 </jet-nav-link>
-                                <jet-nav-link :href="route('chat')" :active="route().current('chat')">
-                                    Chat
-                                </jet-nav-link>
                             </div>
+                            <jet-nav-link :href="route('chat')" :active="route().current('chat')">
+                                Chat
+                            </jet-nav-link>
+                            <jet-nav-link :href="route('Next')" :active="route().current('Next')">
+                                Next
+                            </jet-nav-link>
                         </div>
 
                         <div class="hidden sm:flex sm:items-center sm:ml-6">
