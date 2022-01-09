@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        function message(){
+           if(document.frm.check.checked == true){
+            a = document.frm.present.value;
+            document.frm.parmanent.value = a;
+           }else{
+               return;
+           }
+        }
+        // const btn = document.querySelector('button');
+        // const div = document.getElementById('app');
+
+        // function random(number){
+        //     return Math.floor(Math.random() * (number+1));
+        // }
+
+        // btn.addEventListener('click', () => {
+        //     const randomColor = `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
+        //     document.body.style.backgroundColor = randomColor;
+        // })
+
+        
+
+    </script>
+    <style>
+        #app{
+            height: 100px;
+            width: 80px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <button>Change Background</button>
+    <div id="app">
+        Hello
+    </div>
+    <form name="frm">
+        <textarea name="present" id="input"></textarea>
+        <input type="checkbox" id="checking" onclick="return message()" name="check" value="Same">
+        <textarea name="parmanent"></textarea>
+    </form>
+    <script type="text/javascript">
+        let btn = document.querySelector('button');
+
+        function random(number) {
+        return Math.floor(Math.random() * (number+1));
+        }
+
+        btn.addEventListener('click', () => {
+        let rndCol = `rgb(${random(255)}, ${random(255)}, ${random(255)})`;
+        document.body.style.backgroundColor = rndCol;
+        });
+    </script>
+</body>
+</html>

@@ -23,7 +23,7 @@
                                     Dashboard
                                 </jet-nav-link>
                             </div>
-                            <jet-nav-link :href="route('chat')" :active="route().current('chat')">
+                            <jet-nav-link style="margin-left: 50px; margin-right: 50px;" :href="route('chat')" :active="route().current('chat')">
                                 Chat
                             </jet-nav-link>
                             <jet-nav-link :href="route('Next')" :active="route().current('Next')">
