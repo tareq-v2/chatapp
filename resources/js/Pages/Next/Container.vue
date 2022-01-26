@@ -1,39 +1,33 @@
 <template>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script> -->
-    <app-layout title="Dashboard">
-        <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                Next
-            </h2>
-        </template>
-
+     <app-layout title="Dashboard">
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg container p-5">
                         <h2 class="text-align-center">Add New User</h2>
-                        <label stylle="margin-right: 13px;">Name</label>
-                        <input 
-                            type="text"
-                            placeholder="Enter Name"
-                            v-model="item.name"
-                            class="form-control"
-
-                         />
-                         <br style="margin: 20px 0;">
-                        <label stylle="margin-right: 10px;">Phone</label>
-                        <input 
-                            type="text"
-                            placeholder="Enter Phone"
-                            v-model="item.phone"
-                            class="form-control"
-                         />
-                         <br style="margin: 20px 0;">
+                         <div class="md:flex md:items-center mb-6">
+                            <div class="md:w-1/3">
+                            <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name">
+                                Name
+                            </label>
+                            </div>
+                            <div class="md:w-2/3">
+                            <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-green-100" id="inline-full-name" v-model="item.name" type="text">
+                            </div>
+                            <div class="md:w-1/3">
+                            <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" for="inline-full-name">
+                                Phone
+                            </label>
+                            </div>
+                            <div class="md:w-2/3">
+                            <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-green-100" id="inline-full-name" v-model="item.phone" type="text">
+                            </div>
+                        </div>
                          <button 
-                          class="btn btn-primary"
+                           class="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
                          @click="save"
                          >Save</button>
                 </div>
+                <!-- bootstrap view stystem
                 <table class="table" v-if="lists.length > 0">
                     <thead>
                         <tr>
@@ -60,29 +54,61 @@
                                 </span>
                             </div>
                         </div>
-                        </tr>
-                        
+                        </tr>   
                     </tbody>
-                </table>
-                <!-- <div v-if="lists.length > 0">
-                    <ul>
-                        <li
-                            v-for="item in lists"
-                            :key="item.id"
-                        >
-                            {{ item.name }}  and {{ item.phone }}
-                            <span style="align-item: right;">
-                                <button style="padding: 5px;
-                         margin: 5px; border-radius: 4px; background: green; color: #fff;">View</button>
-                                <button 
-                                @click="deleteTel(item.id)"
-                                style="padding: 5px;
-                         margin: 5px; border-radius: 4px; background: red; color: #fff;">Delete</button>
-                            </span>
-                        </li>
-                    </ul>
-                </div> -->
+                </table> -->
+                <div class="py-5">
+            <div class="max-w-7xl mx-auto sm:px-6 lg:px-3">
+                <div class="bg-white overflow-hidden shadow-xl bg sm:rounded-lg">
+                    <div class="flex flex-col">
+                    <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                        <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                        <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                            <table class="min-w-full divide-y divide-gray-200">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Name
+                                </th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Phone
+                                </th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Status
+                                </th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white divide-y divide-gray-200">
+                                <tr
+                                    v-for="item in lists"
+                                    :key="item.id">
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                   {{ item.name }}
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    {{ item.phone }}
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span style="align-item: right;">
+                                        <button class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">View</button>
+                                                <button class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow" 
+                                                @click="deleteTel(item.id)"
+                                                >Delete</button>
+                                    </span>
+                                </td>
+                                </tr>
+
+                                <!-- More people... -->
+                            </tbody>
+                            </table>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
             </div>
+        </div>
+    </div>
             
         </div>
     </app-layout>
@@ -132,16 +158,13 @@
             },
             deleteTel(id){
                 try{
-                    axios.delete('/api/tel/$id')
-                    .then(res => {
-                        console.log(res);
-                        this.fetchAll(id);
-                    });
+                    axios.delete('/api/tel/' + id);
                 }
                 catch(e){
                     console.log(e)
                 }
             }
+            
         }
     })
 </script>
